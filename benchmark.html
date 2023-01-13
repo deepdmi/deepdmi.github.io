@@ -39,7 +39,7 @@
 
 <main role="main" class="container flex-shrink-0">
     <div class="container">
-        <h4 class="py-5">
+        <h4 class="pt-4 pb-4 m-0">
             &nbsp;<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;&nbsp;Browse and download benchmark dataset
         </h4>
         <ul class="nav nav-tabs" role="tablist">
@@ -51,37 +51,96 @@
         </ul>
         <br>
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane card shadow-sm" id="train">
-                <div class="card-body py-5"></div>
+            <div role="tabpanel" class="tab-pane card shadow-sm active" id="train">
+                <div class="card-body py-4">
                     <div class="table-responsive">
                         <table id="table-train"></table>
                     </div>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane card shadow-sm" id="valid">
-                <div class="card-body py-5"></div>
+                <div class="card-body py-4">
                     <div class="table-responsive">
                         <table id="table-valid"></table>
                     </div>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane card shadow-sm" id="test">
-                <div class="card-body py-5"></div>
+                <div class="card-body py-4">
                     <div class="table-responsive">
                         <table id="table-test"></table>
                     </div>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane card shadow-sm" id="unseen">
-                <div class="card-body py-5"></div>
+                <div class="card-body py-4">
                     <div class="table-responsive">
                         <table id="table-unseen"></table>
                     </div>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane card shadow-sm" id="download">
-                <div class="card-body py-5"></div>
-
+                <div class="card-body py-4">
+                    <table class="table table-hover table-bordered">
+                        <thead class="bg-dark text-white">
+                        <tr>
+                            <th>File</th>
+                            <th>Release Date</th>
+                            <th>Download Link</th>
+                        </tr>
+                        </thead>
+                        <tr>
+                            <td>Drug File</td>
+                            <td>January 15 2023</td>
+                            <td><a href="https://deepdmi.github.io/data/benchmark/download/drug.csv">Download</a> (CSV File)</td>
+                        </tr>
+                        <tr>
+                            <td>Microbe File</td>
+                            <td>January 15 2023</td>
+                            <td><a href="https://deepdmi.github.io/data/benchmark/download/microbe.csv">Download</a> (CSV File)</td>
+                        </tr>
+                        <tr>
+                            <td>Target File</td>
+                            <td>January 15 2023</td>
+                            <td><a href="https://deepdmi.github.io/data/benchmark/download/target.csv">Download</a> (CSV File)</td>
+                        </tr>
+                        <tr>
+                            <td>Drug-Microbe File</td>
+                            <td>January 15 2023</td>
+                            <td><a href="https://deepdmi.github.io/data/benchmark/download/drug_microbe.csv">Download</a> (CSV File)</td>
+                        </tr>
+                        <tr>
+                            <td>Drug-Target File</td>
+                            <td>January 15 2023</td>
+                            <td><a href="https://deepdmi.github.io/data/benchmark/download/drug_target.csv">Download</a> (CSV File)</td>
+                        </tr>
+                        <tr>
+                            <td>Drug-Microbe-Target File</td>
+                            <td>January 15 2023</td>
+                            <td><a href="https://deepdmi.github.io/data/benchmark/download/drug_microbe_target.csv">Download</a> (CSV File)</td>
+                        </tr>
+                        <tr>
+                            <td>Training Set File</td>
+                            <td>January 15 2023</td>
+                            <td><a href="https://deepdmi.github.io/data/benchmark/download/training.csv">Download</a> (CSV File)</td>
+                        </tr>
+                        <tr>
+                            <td>Validation Set File</td>
+                            <td>January 15 2023</td>
+                            <td><a href="https://deepdmi.github.io/data/benchmark/download/validation.csv">Download</a> (CSV File)</td>
+                        </tr>
+                        <tr>
+                            <td>Seen Test Set File</td>
+                            <td>January 15 2023</td>
+                            <td><a href="https://deepdmi.github.io/data/benchmark/download/test.csv">Download</a> (CSV File)</td>
+                        </tr>
+                        <tr>
+                            <td>Unseen Test Set File</td>
+                            <td>January 15 2023</td>
+                            <td><a href="https://deepdmi.github.io/data/benchmark/download/unseen.csv">Download</a> (CSV File)</td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -112,13 +171,6 @@
         url: 'https://deepdmi.github.io/data/benchmark/train.json',
         contentType: 'application/x-www-form-urlencoded',
 		method: 'get',
-        toolbar: '#toolbar-d',
-        toolbarAlign: 'right',
-        clickToSelect: true,
-        singleSelect: true,
-        search: true,
-        showSearchButton: true,
-        searchAlign: 'left',
         maintainMetaData: true,
         cache: true,
         striped: true,
@@ -154,17 +206,10 @@
         ]
     });
 
-    $('#table-train').bootstrapTable({
+    $('#table-valid').bootstrapTable({
         url: 'https://deepdmi.github.io/data/benchmark/valid.json',
         contentType: 'application/x-www-form-urlencoded',
 		method: 'get',
-        toolbar: '#toolbar-d',
-        toolbarAlign: 'right',
-        clickToSelect: true,
-        singleSelect: true,
-        search: true,
-        showSearchButton: true,
-        searchAlign: 'left',
         maintainMetaData: true,
         cache: true,
         striped: true,
@@ -200,17 +245,10 @@
         ]
     });
 
-    $('#table-train').bootstrapTable({
+    $('#table-test').bootstrapTable({
         url: 'https://deepdmi.github.io/data/benchmark/test.json',
         contentType: 'application/x-www-form-urlencoded',
 		method: 'get',
-        toolbar: '#toolbar-d',
-        toolbarAlign: 'right',
-        clickToSelect: true,
-        singleSelect: true,
-        search: true,
-        showSearchButton: true,
-        searchAlign: 'left',
         maintainMetaData: true,
         cache: true,
         striped: true,
@@ -246,17 +284,10 @@
         ]
     });
 
-    $('#table-train').bootstrapTable({
+    $('#table-unseen').bootstrapTable({
         url: 'https://deepdmi.github.io/data/benchmark/unseen.json',
         contentType: 'application/x-www-form-urlencoded',
 		method: 'get',
-        toolbar: '#toolbar-d',
-        toolbarAlign: 'right',
-        clickToSelect: true,
-        singleSelect: true,
-        search: true,
-        showSearchButton: true,
-        searchAlign: 'left',
         maintainMetaData: true,
         cache: true,
         striped: true,
