@@ -220,8 +220,13 @@
                 checkbox: true,
                 align: 'center',
             },  {
-                field: 'name',
-                title: 'Antigen',
+                field: 'drug',
+                title: 'Drug Name',
+                align: 'center',
+                sortable:true,
+            },  {
+                field: 'microbe',
+                title: 'Microbe name',
                 align: 'center',
                 sortable:true,
             },  {
@@ -264,16 +269,12 @@
                     checkbox: true,
                     align: 'center',
                 }, {
-                    field: 'id',
-                    title: 'ID',
+                    field: 'drug',
+                    title: 'DrugBank ID',
                     sortable:true,
                 }, {
                     field: 'name',
-                    title: 'Name',
-                    sortable:true,
-                },{
-                    field: 'description',
-                    title: 'Description',
+                    title: 'Drug Name',
                     sortable:true,
                 }
         ]
@@ -356,16 +357,12 @@
                     checkbox: true,
                     align: 'center',
                 }, {
-                    field: 'id',
-                    title: 'ID',
+                    field: 'microbe',
+                    title: 'Taxonomy ID',
                     sortable:true,
                 }, {
                     field: 'name',
-                    title: 'Name',
-                    sortable:true,
-                },{
-                    field: 'description',
-                    title: 'Description',
+                    title: 'Microbe Name',
                     sortable:true,
                 }
         ]
@@ -454,7 +451,7 @@
             };
             if (sel_d2.length == 0) {
                 flag_d2 = 0;
-				alter_s = alter_s + 'Please select at least one drug.\n';
+				alter_s = alter_s + 'Please select at least one microbe.\n';
             } else {
                 flag_d2 = 1;
             };
