@@ -438,83 +438,39 @@
 
     var flag_a = 0;
 	var flag_b = 0;
-    var flag_ = 0;
-    var alter_s;
+    var flag_d = 0;
+    var flag_d2 = 0;
+    var alter_s = '';
 	
     $(function(){
         $('#s').click(function (e) {
             e.preventDefault();
             alter_s = '';
             if (sel_d.length == 0) {
-                $("#o-all").hide();
-                flag_ = 0;
-				alter_s = 'Please select at least one antigen.\n';
-				alert(alter_s);
+                flag_d = 0;
+				alter_s = alter_s + 'Please select at least one drug.\n';
             } else {
-                flag_ = 1;
+                flag_d = 1;
             };
-            
-            var s_a = String($('#hfs').val());
-            var s_b = String($('#lfs').val());
-
-            if (s_a == '' || s_b == '') {
-                $("#o-all").hide();
-                if(s_a == ''){
-                    flag_a = 0;
-                    $("#hfs").removeClass('is-valid');
-                    $("#hfs").addClass('is-invalid');
-                    $('#table-results').bootstrapTable('removeAll');
-                };
-                if(s_b == ''){
-                    flag_b= 0;
-                    $("#lfs").removeClass('is-valid');
-                    $("#lfs").addClass('is-invalid');
-                    $('#table-results').bootstrapTable('removeAll');
-                }
+            if (sel_d2.length == 0) {
+                flag_d2 = 0;
+				alter_s = alter_s + 'Please select at least one drug.\n';
+            } else {
+                flag_d2 = 1;
+            };
+            if (flag_d == 0 || flag_d2 == 0) {
+                alert(alter_s);
+                alter_s = '';
             } else {			
-                var data = {'hfs' : s_a, 'lfs' : s_b};
-				$.ajax({
-					type: 'POST',
-					url: 'https://www.deepusp.com/model_aai/check',
-					data: JSON.stringify(data),
-					dataType: 'json',
-					contentType: 'application/json',
-					success: function (data) {
-						if (data.flag_h == 'true') {
-							flag_a = 1;
-							$("#hfs").removeClass('is-invalid');
-							$("#hfs").addClass('is-valid');
-						}
-						else {
-							flag_a = 0;
-							$("#hfs").removeClass('is-valid');
-							$("#hfs").addClass('is-invalid');
-							$('#table-results').bootstrapTable('removeAll');
-						};
-                        if (data.flag_l == 'true') {
-							flag_b = 1;
-							$("#lfs").removeClass('is-invalid');
-							$("#lfs").addClass('is-valid');
-						}
-						else {
-							flag_a = 0;
-							$("#lfs").removeClass('is-valid');
-							$("#lfs").addClass('is-invalid');
-							$('#table-results').bootstrapTable('removeAll');
-						};
-						if (flag_a == 1 && flag_b == 1 && flag_ == 1) {
-                            if (sel_d[0] == -1) {
-                            $("#o-all").hide();
-							$('#table-results').bootstrapTable('refreshOptions', {
-								url: 'https://www.deepusp.com/model_aai/predict_hiv',
+                $('#table-results').bootstrapTable('refreshOptions', {
+								url: 'https://www.deepusp.com/model_dmi/predict',
 								method: 'post',
                                 cache: true,
                                 sidePagination: 'server',
 								queryParams: function (params) {
 									return {
-										hfs:s_a,
-										lfs:s_b,
                                         d: JSON.stringify(sel_d),
+                                        d2: JSON.stringify(sel_d2),
                                         limit: params.limit,
                                         offset: params.offset,
                                         sort: params.sort,
@@ -522,26 +478,6 @@
 									}
 								},
 							});
-                            } 
-                            else {
-                            $("#o-all").show();
-                            $('#table-results').bootstrapTable('refreshOptions', {
-								url: 'https://www.deepusp.com/model_aai/predict_hiv',
-								method: 'post',
-                                cache: true,
-                                sidePagination: 'client',
-                                queryParams: function (params) {
-									return {
-										hfs:s_a,
-										lfs:s_b,
-                                        d: JSON.stringify(sel_d),
-									}
-								},
-							});
-                            };
-						};
-					}
-				});
             };
 			
         });
