@@ -463,15 +463,11 @@
 								url: 'https://www.deepusp.com/model_dmi/predict',
 								method: 'post',
                                 cache: true,
-                                sidePagination: 'server',
+                                sidePagination: 'client',
 								queryParams: function (params) {
 									return {
                                         d: JSON.stringify(sel_d),
                                         d2: JSON.stringify(sel_d2),
-                                        limit: params.limit,
-                                        offset: params.offset,
-                                        sort: params.sort,
-                                        order: params.order,
 									}
 								},
 							});
