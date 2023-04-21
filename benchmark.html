@@ -43,43 +43,15 @@
             &nbsp;<i class="fa fa-folder-open" aria-hidden="true"></i>&nbsp;&nbsp;Browse and download benchmark dataset
         </h4>
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="nav-item"><a class="nav-link text-dark active" href="#train" role="tab" data-toggle="tab">Training</a></li>
+            <li role="presentation" class="nav-item"><a class="nav-link text-dark active" href="#download" role="tab" data-toggle="tab">Download</a></li>
+            <li role="presentation" class="nav-item"><a class="nav-link text-dark" href="#train" role="tab" data-toggle="tab">Training</a></li>
             <li role="presentation" class="nav-item"><a class="nav-link text-dark" href="#valid" role="tab" data-toggle="tab">Validation</a></li>
             <li role="presentation" class="nav-item"><a class="nav-link text-dark" href="#test" role="tab" data-toggle="tab">Seen test</a></li>
             <li role="presentation" class="nav-item"><a class="nav-link text-dark" href="#unseen" role="tab" data-toggle="tab">Unseen test</a></li>
-            <li role="presentation" class="nav-item"><a class="nav-link text-dark" href="#download" role="tab" data-toggle="tab">Download</a></li>
         </ul>
         <br>
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane card shadow-sm active" id="train">
-                <div class="card-body py-4">
-                    <div class="table-responsive">
-                        <table id="table-train"></table>
-                    </div>
-                </div>
-            </div>
-            <div role="tabpanel" class="tab-pane card shadow-sm" id="valid">
-                <div class="card-body py-4">
-                    <div class="table-responsive">
-                        <table id="table-valid"></table>
-                    </div>
-                </div>
-            </div>
-            <div role="tabpanel" class="tab-pane card shadow-sm" id="test">
-                <div class="card-body py-4">
-                    <div class="table-responsive">
-                        <table id="table-test"></table>
-                    </div>
-                </div>
-            </div>
-            <div role="tabpanel" class="tab-pane card shadow-sm" id="unseen">
-                <div class="card-body py-4">
-                    <div class="table-responsive">
-                        <table id="table-unseen"></table>
-                    </div>
-                </div>
-            </div>
-            <div role="tabpanel" class="tab-pane card shadow-sm" id="download">
+            <div role="tabpanel" class="tab-pane card shadow-sm active" id="download">
                 <div class="card-body py-4">
                     <table class="table table-hover table-bordered">
                         <thead class="bg-dark text-white">
@@ -141,6 +113,34 @@
                         </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane card shadow-sm" id="train">
+                <div class="card-body py-4">
+                    <div class="table-responsive">
+                        <table id="table-train"></table>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane card shadow-sm" id="valid">
+                <div class="card-body py-4">
+                    <div class="table-responsive">
+                        <table id="table-valid"></table>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane card shadow-sm" id="test">
+                <div class="card-body py-4">
+                    <div class="table-responsive">
+                        <table id="table-test"></table>
+                    </div>
+                </div>
+            </div>
+            <div role="tabpanel" class="tab-pane card shadow-sm" id="unseen">
+                <div class="card-body py-4">
+                    <div class="table-responsive">
+                        <table id="table-unseen"></table>
+                    </div>
                 </div>
             </div>
         </div>
